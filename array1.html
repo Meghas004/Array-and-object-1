@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Manipulation</title>
+</head>
+<body>
+    <script>
+        // Your JavaScript code here
+        let numbers = [5, 3, 8, 1, 2];
+
+        function addNumber(array, number) {
+            array.push(number);
+            console.log(`After adding ${number}: [${array.join(", ")}]`);
+        }
+
+        function removeNumber(array, number) {
+            const index = array.indexOf(number);
+            if (index !== -1) {
+                array.splice(index, 1);
+            } else {
+                console.log(`${number} is not in the array.`);
+            }
+            console.log(`After removing ${number}: [${array.join(", ")}]`);
+        }
+
+        function sortNumbers(array) {
+            const sortedArray = array.slice().sort((a, b) => a - b);
+            console.log(`Sorted array: [${sortedArray.join(", ")}]`);
+            return sortedArray;
+        }
+
+        function calculateSum(array) {
+            const sum = array.reduce((acc, curr) => acc + curr, 0);
+            console.log(`Sum of numbers: ${sum}`);
+            return sum;
+        }
+
+        function calculateAverage(array) {
+            if (array.length === 0) return 0;
+            const sum = calculateSum(array);
+            const average = sum / array.length;
+            console.log(`Average of numbers: ${average}`);
+            return average;
+        }
+
+        console.log(`Initial array: [${numbers.join(", ")}]`);
+
+        addNumber(numbers, 4);
+        removeNumber(numbers, 3);
+        sortNumbers(numbers);
+        calculateSum(numbers);
+        calculateAverage(numbers);
+    </script>
+</body>
+</html>
